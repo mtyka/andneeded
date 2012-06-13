@@ -1,0 +1,15 @@
+<%= stylesheet_link_tag "main" %>
+
+<h1>AND Shoppinglist</h1>
+
+<div class="container">
+<%= render :partial => @items, :locals => { :list => true } %>
+</div>
+
+<br />
+
+<%= render 'form' %>
+
+</div>
+
+

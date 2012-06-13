@@ -1,0 +1,27 @@
+<h1>New item</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Itemname</th>
+    <th>Detail</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @items.each do |item| %>
+  <tr>
+    <td><%= item.name %></td>
+    <td><%= item.itemname %></td>
+    <td><%= item.detail %></td>
+    <td><%= link_to 'Show', item %></td>
+    <td><%= link_to 'Edit', edit_item_path(item) %></td>
+    <td><%= link_to 'Destroy', item, :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', items_path %>

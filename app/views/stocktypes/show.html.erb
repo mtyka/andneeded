@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @stocktype.name %>
+</p>
+
+<p>
+  <b>Group:</b>
+  <%= @stocktype.group %>
+</p>
+
+
+<%= link_to 'Edit', edit_stocktype_path(@stocktype) %> |
+<%= link_to 'Back', stocktypes_path %>
