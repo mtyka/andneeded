@@ -7,3 +7,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+function submit_new_item_form_for( item_name, item_group ){
+  $('#item_name').val(item_name)
+  $('#item_group').val(item_group)
+
+  $("#new_item").submit();
+}
+
+
+
+
+

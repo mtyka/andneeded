@@ -10,6 +10,22 @@
 
 <%= render 'form' %>
 
+<div class="stockgroup_container">
+
+
+<% @stocktypes.each do |stocktype| %>
+<div>
+<div class="stockitem" onclick="submit_new_item_form_for('<%= stocktype.name %> ','<%= stocktype.group %>')">
+    <%= stocktype.name %>, <%= stocktype.group %>
+</div>
+<div class="spacer"> </div>
+</div>
+
+<% end %>
+
+
+</div>
+
 </div>
 
 

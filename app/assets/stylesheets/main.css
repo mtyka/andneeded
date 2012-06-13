@@ -11,8 +11,8 @@ div {
  font-size:14px;
 }
 
-div.item {
-	width: 100%;
+div.item, div.stockitem {
+	width:  90%;
 	padding: 10px;
 	background: #558;
 	text: #FFF;
@@ -30,6 +30,10 @@ div.item {
 	moz-box-shadow: 0 0 20px rgba(1,1,1,0.5);
 	webkit-border-radius: 4px;
 	webkit-box-shadow: 0 0 20px rgba(1,1,1,0.5);
+}
+
+div.stockitem {
+	background: #585;
 }
 
 div.spacer {
