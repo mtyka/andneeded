@@ -4,13 +4,12 @@ var categories = [
 "Starch",
 "Produce",
 "Protein ",
-"Desert",
+"Dessert",
 "Condiments",
 "Spices",
 "Beverages",
 "Office",
-"Household",
-"Porn"
+"Household"
 ];
 
 function setup_stockitems_container(){

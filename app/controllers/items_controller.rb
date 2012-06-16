@@ -3,6 +3,21 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @items = Item.all
+    
+    @stockgroups = 
+       [
+      "Dairy",
+      "Starch",
+      "Produce",
+      "Protein ",
+      "Dessert",
+      "Condiments",
+      "Spices",
+      "Beverages",
+      "Office",
+      "Household"
+      ];
+
     @stocktypes = Stocktype.all
     @item = Item.new(params[:item])
 

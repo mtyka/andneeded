@@ -1,6 +1,12 @@
 <%= stylesheet_link_tag "main" %>
 
-<h1>AND Shoppinglist</h1>
+<div class="wholesite">
+<div class="title">
+  AND Shoppinglist
+<div class="addbutton" onclick="change_to_menu_stockgroups()" >
+<center>Add</center>
+</div>
+</div>
 
 <div class="container">
 <%= render :partial => @items, :locals => { :list => true } %>
@@ -11,21 +17,32 @@
 <%= render 'form' %>
 
 <div class="stockgroup_container">
-
-
-<% @stocktypes.each do |stocktype| %>
-<div>
-<div class="stockitem" onclick="submit_new_item_form_for('<%= stocktype.name %> ','<%= stocktype.group %>')">
-    <%= stocktype.name %>, <%= stocktype.group %>
+<% @stockgroups.each do |stockgroup| %>
+  <div>
+  <div class="stockgroup" onclick="change_to_menu_stocktypes('<%= stockgroup %>')">
+      <%= stockgroup %>
+  </div>
+  <div class="spacer"> </div>
+  </div>
+<% end %>
 </div>
-<div class="spacer"> </div>
-</div>
 
+
+<% @stockgroups.each do |stockgroup| %>
+  <div class="stocktype_container" id="<%= stockgroup %>" >
+    <% @stocktypes.each do |stocktype| %>
+    <% if stocktype.group == stockgroup %> 
+      <div>
+      <div class="stocktype" onclick="submit_new_item_form_for('<%= stocktype.name %> ','<%= stocktype.group %>')">
+          <%= stocktype.name %>
+      </div>
+      <div class="spacer"> </div>
+      </div>
+    <% end %>
+    <% end %>
+  </div>
 <% end %>
 
-
 </div>
-
 </div>
-
 
