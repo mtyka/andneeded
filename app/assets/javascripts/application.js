@@ -33,6 +33,8 @@ function submit_new_item_form_for( item_name, item_group ){
 }
 
 
-
+function delete_item( id ){
+  $("div#" + id).fadeOut(200, function() { $(this).remove() } );
+}
 
 

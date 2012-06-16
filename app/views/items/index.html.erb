@@ -14,7 +14,9 @@
 
 <br />
 
+<div style="display: none">
 <%= render 'form' %>
+</div>
 
 <div class="stockgroup_container">
 <% @stockgroups.each do |stockgroup| %>
@@ -25,6 +27,11 @@
   <div class="spacer"> </div>
   </div>
 <% end %>
+  <div class="spacer"> </div>
+  <div class="spacer"> </div>
+  <div class="stockgroup" onclick="do_custom_entry()" style="background: #556" > 
+      Custom
+  </div>
 </div>
 
 
