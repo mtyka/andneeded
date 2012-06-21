@@ -1,7 +1,7 @@
 
 <div id="id<%= item.id %>">
 <div class="item">
-    &nbsp;<%= item.name %>
+    &nbsp;<%= item.name %>, <%= item.group %>
     <%= link_to  image_tag("x.png", :border => 0, :class => "destroy_button", :height => 60, :width => 60 ), item, :method => :delete, :remote => true, :onclick => "delete_item('id"+item.id.to_s+"')" %>
 </div>
 <div class="spacer"> </div>

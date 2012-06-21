@@ -6,20 +6,21 @@ class ItemsController < ApplicationController
     
     @stockgroups = 
        [
-      "Dairy",
-      "Starch",
-      "Produce",
-      "Protein ",
-      "Dessert",
-      "Condiments",
-      "Spices",
       "Beverages",
-      "Office",
-      "Household"
+      "Canned food",
+      "Condiments",
+      "Dairy",
+      "Dessert",
+      "Dryfoods",
+      "Household",
+      "Produce",
+      "Protein",
+      "Spices"
       ];
 
     @stocktypes = Stocktype.all
     @item = Item.new(params[:item])
+    @stocktype  = Stocktype.new(params[:stocktype])
 
     respond_to do |format|
       format.html # new.html.erb

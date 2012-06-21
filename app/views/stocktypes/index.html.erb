@@ -5,7 +5,22 @@
 <%= render 'form' %>
 
 <div id="stock_container">
-<%= render :partial => @stocktypes, :locals => { :list => true } %>
+
+<% @stockgroups.each do |stockgroup| %>
+  <div id="<%= stockgroup %>" >
+    <div class="navi"> <%= stockgroup %> </div>
+    <% @stocktypes.each do |stocktype| %>
+    <% if stocktype.group == stockgroup %> 
+      <div>
+        <%= render :partial => stocktype, :locals => { :list => true } %>
+      </div>
+    <% end %>
+    <% end %>
+  </div>
+<% end %>
+
+
+
 </div>
 
 <br />

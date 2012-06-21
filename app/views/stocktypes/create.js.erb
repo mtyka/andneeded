@@ -1,7 +1,2 @@
-
-group = "div#group_cont_" + "<%= @stocktype.group %>"
-console.log(group)
-//alert(group)
-//$("#stock_container").append("<%= escape_javascript(render(@stocktype)) %>");
-$(group).append("<%= escape_javascript(render(@stocktype)) %>");
-
+group = "div#" + "<%= @stocktype.group %>"
+$(group).children("#stocktype_block").append("<%= escape_javascript(render(@stocktype)) %>");

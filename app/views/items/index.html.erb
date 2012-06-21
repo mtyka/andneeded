@@ -18,38 +18,93 @@
 <%= render 'form' %>
 </div>
 
+
 <div class="stockgroup_container">
+
+<div class="navi" onclick="close_menus()">
+Cancel
+</div>
+
+<div class="spacer"> </div>
+<div class="spacer"> </div>
+
 <% @stockgroups.each do |stockgroup| %>
   <div>
   <div class="stockgroup" onclick="change_to_menu_stocktypes('<%= stockgroup %>')">
-      <%= stockgroup %>
+      &nbsp; <%= stockgroup %>
   </div>
   <div class="spacer"> </div>
   </div>
 <% end %>
-  <div class="spacer"> </div>
-  <div class="spacer"> </div>
-  <div class="stockgroup" onclick="do_custom_entry()" style="background: #556" > 
-      Custom
-  </div>
+
 </div>
 
 
 <% @stockgroups.each do |stockgroup| %>
   <div class="stocktype_container" id="<%= stockgroup %>" >
-    <% @stocktypes.each do |stocktype| %>
-    <% if stocktype.group == stockgroup %> 
-      <div>
-      <div class="stocktype" onclick="submit_new_item_form_for('<%= stocktype.name %> ','<%= stocktype.group %>')">
-          <%= stocktype.name %>
-      </div>
-      <div class="spacer"> </div>
-      </div>
-    <% end %>
-    <% end %>
+      
+    <div class="navi" onclick="change_to_menu_stockgroups()" >
+    Cancel
+    </div>
+    <div class="spacer"> </div>
+    <div class="spacer"> </div>
+    
+    <div id="stocktype_block">
+      <% @stocktypes.each do |stocktype| %>
+      <% if stocktype.group == stockgroup %> 
+        <div>
+         <%= render :partial => stocktype, :locals => { :list => true } %>
+         <div class="spacer"> </div>
+        </div>
+      <% end %>
+      <% end %>
+    </div>
+
+    <div class="spacer"> </div>
+    <div class="spacer"> </div>
+    <div class="stocktype" onclick="do_custom_entry('<%= stockgroup %>')" style="background: #556" > 
+      Custom
+    </div>
   </div>
 <% end %>
 
+<div class="custom_entry" >
+
+<div id="custom_entry_title">New item:</div>
+
+<form id="add_custom_item_form" >
+<input type="text" name="field" class="custom_item" id="custom_item" />
+</form>
+
+</div>
+
 </div>
 </div>
 
+<div style="display:none">
+<%= form_for(@stocktype, :remote => true) do |f| %>
+  <% if @stocktype.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stocktype.errors.count, "error") %> prohibited this stocktype from being saved:</h2>
+
+      <ul>
+      <% @stocktype.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :group %><br />
+    <%= f.text_field :group %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>

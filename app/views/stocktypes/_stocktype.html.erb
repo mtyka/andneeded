@@ -1,10 +1,8 @@
-<div id="id<%= stocktype.id %>" class="group_<%= stocktype.group %>" > 
-<div class="item">
-    <%= stocktype.name %>,
-    <%= stocktype.group %>
-    <%= link_to 'Edit',    stocktype, :method => :edit  , :remote => true %>
-    <%= link_to 'Destroy', stocktype, :method => :delete, :remote => true %>
-</div>
-<div class="spacer"> </div>
+<div class="stocktype" onclick="submit_new_item_form_for('<%= stocktype.name %>','<%= stocktype.group %>')">
+          &nbsp; <%= stocktype.name %>
+<!--          
+          <%= link_to 'Edit',    stocktype, :method => :edit  , :remote => true %>
+          <%= link_to 'Destroy', stocktype, :method => :delete, :remote => true %>
+-->
 </div>
 

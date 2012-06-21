@@ -3,6 +3,18 @@ class StocktypesController < ApplicationController
   # GET /stocktypes.json
   def index
     @stocktypes = Stocktype.all
+    @stockgroups = 
+       [
+      "Dairy",
+      "Dryfoods",
+      "Produce",
+      "Protein",
+      "Dessert",
+      "Condiments",
+      "Spices",
+      "Beverages",
+      "Household"
+      ];
     @stocktype  = Stocktype.new(params[:stocktype])
 
     respond_to do |format|
