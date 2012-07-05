@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    @items = Item.all.sort_by &:name
     
     @stockgroups = 
        [
@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
       "Spices"
       ];
 
-    @stocktypes = Stocktype.all
+    @stocktypes = Stocktype.all.sort_by &:name
     @item = Item.new(params[:item])
     @stocktype  = Stocktype.new(params[:stocktype])
 
